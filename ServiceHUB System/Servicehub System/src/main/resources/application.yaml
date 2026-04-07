@@ -1,3 +1,49 @@
 spring:
   application:
-    name: Servicehub System
+    name: service-marketplace
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/servicehub?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: Shihab14032001
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        use_sql_comments: true
+    show-sql: false
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  web:
+    error:
+      include-message: always
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+app:
+  jwtSecret: "your-secret-key-change-in-production-min-32-characters-long"
+  jwtExpirationMs: 86400000 # 24 hours
+  cors:
+    allowed-origins: "http://localhost:3000,http://localhost:3001"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    allow-credentials: true
+    max-age: 3600
+
+logging:
+  level:
+    root: INFO
+    com.microservices: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
