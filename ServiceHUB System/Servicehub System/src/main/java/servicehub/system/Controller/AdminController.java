@@ -20,7 +20,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class AdminController {
     private final UserRepository userRepository;
