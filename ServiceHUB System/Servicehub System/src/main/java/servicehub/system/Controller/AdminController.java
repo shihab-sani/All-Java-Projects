@@ -121,6 +121,7 @@ public class AdminController {
                     .code(request.getCode())
                     .discountPercentage(request.getDiscountPercentage())
                     .discountAmount(request.getDiscountAmount())
+                    .validFrom(LocalDateTime.now())
                     .validUntil(request.getExpiryDate())
                     .maxUses(request.getMaxUses())
                     .currentUses(0)
