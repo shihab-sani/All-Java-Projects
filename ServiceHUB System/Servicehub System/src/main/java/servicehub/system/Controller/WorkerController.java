@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/worker")
+@RequestMapping("/workers")
 @CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class WorkerController {
