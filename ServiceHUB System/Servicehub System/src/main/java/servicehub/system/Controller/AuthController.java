@@ -10,7 +10,6 @@ import servicehub.system.Service.AuthService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class AuthController {
     private final AuthService authService;

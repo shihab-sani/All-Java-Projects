@@ -40,6 +40,7 @@ class ApiClient {
         method,
         headers: this.getHeaders(token),
         body: body ? JSON.stringify(body) : undefined,
+        credentials: 'include',
       });
 
       if (!response.ok) {
