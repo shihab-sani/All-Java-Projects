@@ -3,6 +3,7 @@ package patient.management.DTOs;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import patient.management.DTOs.ValidatorClass.CreatePatientValidator;
 
 @Data
 public class PatientRequestDto {
@@ -20,6 +21,6 @@ public class PatientRequestDto {
     @NotBlank(message = "Date of Birth cannot be blank")
     private String dateOfBirth;
 
-    @NotBlank(message = "Registered Date cannot be blank")
+    @NotBlank(groups = CreatePatientValidator.class,message = "Registered Date cannot be blank")
     private String registeredDate;
 }
