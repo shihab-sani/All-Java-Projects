@@ -18,3 +18,7 @@ spring:
     init:
       mode: always
 
+logging:
+  level:
+    root: info
+    

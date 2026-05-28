@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import patient.management.DTOs.PatientRequestDto;
 import patient.management.DTOs.PatientResponseDto;
+import patient.management.ExceptionHandler.EmailAlreadyExitsException;
 import patient.management.Mapper.PatientMapper;
 import patient.management.ModelClasses.Patient;
 import patient.management.Repositories.PatientRepository;
@@ -22,6 +23,10 @@ public class PatientService {
     }
 
     public PatientResponseDto createPatient(PatientRequestDto patientRequestDto) {
+        if(patientRepository.existsByEmail(patientRequestDto.getEmail())){
+            throw new EmailAlreadyExitsException("With this Email " + patientRequestDto.getEmail() +" already a patient exists");
+        }
+
         Patient patient = patientMapper.toEntity(patientRequestDto);
         Patient newPatient = patientRepository.save(patient);
         return patientMapper.toDto(newPatient);
